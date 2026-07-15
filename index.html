@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta Comercial — Visiongs para Clínica MR Estética</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fbf7f1;
+    --cream-2:#f5eee2;
+    --cream-hover:#f4e9d7;
+    --paper:#fefcf8;
+    --gold:#c39f6c;
+    --gold-dark:#a17f4d;
+    --ink:#544c41;
+    --ink-soft:#8a8074;
+    --line:#e6d9bf;
+    --ok:#7a8b6f;
+    --bad:#b9756a;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Jost', sans-serif;
+    font-weight:300;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    letter-spacing:.02em;
+    margin:0;
+    color:var(--ink);
+  }
+  .eyebrow{
+    font-family:'Jost', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.28em;
+    font-size:.7rem;
+    color:var(--gold-dark);
+    font-weight:500;
+  }
+  .wrap{
+    max-width:1040px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  .rule{
+    width:56px;
+    height:1px;
+    background:var(--gold);
+    margin:18px 0;
+  }
+  .rule.center{margin:18px auto;}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:120px 0 90px;
+    text-align:center;
+    position:relative;
+    border-bottom:1px solid var(--line);
+  }
+  header.hero .eyebrow{display:block;margin-bottom:22px;}
+  header.hero h1{
+    font-size:clamp(2.6rem, 6vw, 4.4rem);
+    font-style:italic;
+    line-height:1.08;
+  }
+  header.hero .sub{
+    margin-top:26px;
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    max-width:560px;
+    margin-left:auto;
+    margin-right:auto;
+    font-weight:300;
+  }
+  header.hero .for{
+    margin-top:36px;
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.4rem;
+    font-style:italic;
+    color:var(--gold-dark);
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{
+    padding:96px 0;
+    border-bottom:1px solid var(--line);
+  }
+  section:last-of-type{border-bottom:none;}
+  section .head{
+    text-align:center;
+    margin-bottom:64px;
+  }
+  section .head h2{
+    font-size:clamp(2rem, 4vw, 2.8rem);
+    margin-top:14px;
+  }
+  section.alt{background:var(--cream-2);}
+
+  /* ---------- DIAGNOSTICO GRID ---------- */
+  .diag-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .diag-card{
+    background:var(--paper);
+    padding:44px 40px;
+    transition:background .35s ease;
+  }
+  .diag-card:hover{
+    background:var(--cream-hover);
+  }
+  .diag-card .num{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1rem;
+    color:var(--gold);
+    display:block;
+    margin-bottom:10px;
+  }
+  .diag-card h3{
+    font-size:1.5rem;
+    margin-bottom:14px;
+  }
+  .diag-card p{
+    color:var(--ink-soft);
+    font-size:.95rem;
+    margin:0;
+  }
+
+  /* ---------- COMPARISON TABLE ---------- */
+  .table-scroll{overflow-x:auto;}
+  table.compare{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--paper);
+    min-width:560px;
+  }
+  table.compare th, table.compare td{
+    padding:20px 22px;
+    text-align:left;
+    border-bottom:1px solid var(--line);
+    font-size:.92rem;
+    transition:background .3s ease;
+  }
+  table.compare tbody tr:hover td, table.compare tbody tr:hover th{
+    background:var(--cream-hover);
+  }
+  table.compare thead th{
+    font-family:'Jost',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-size:.72rem;
+    font-weight:500;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--gold);
+    background:transparent;
+  }
+  table.compare tbody th{
+    font-weight:500;
+    color:var(--ink-soft);
+  }
+  table.compare td.highlight, table.compare th.highlight{
+    background:#fbf3e4;
+  }
+  table.compare .col-brand{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.05rem;
+  }
+
+  .warning{
+    margin-top:44px;
+    border:1px solid var(--gold);
+    background:#fbf3e4;
+    padding:28px 34px;
+    font-size:.98rem;
+    color:var(--ink);
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+  }
+  .warning .mark{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.6rem;
+    color:var(--gold-dark);
+    line-height:1;
+  }
+
+  /* ---------- MITO / VERDADE style paths ---------- */
+  .paths{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:40px;
+  }
+  .path-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:46px 38px;
+    text-align:center;
+    transition:background .35s ease, border-color .35s ease;
+  }
+  .path-card:hover{
+    background:var(--cream-hover);
+    border-color:var(--gold);
+  }
+  .path-card .tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:.72rem;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    color:var(--gold-dark);
+    font-weight:500;
+    margin-bottom:18px;
+  }
+  .path-card .tag .icon{
+    width:18px;height:18px;
+    border-radius:50%;
+    border:1px solid var(--gold);
+    display:inline-flex;align-items:center;justify-content:center;
+    font-size:.7rem;
+  }
+  .path-card h3{
+    font-size:1.7rem;
+    font-style:italic;
+    margin-bottom:16px;
+  }
+  .path-card p{
+    color:var(--ink-soft);
+    font-size:.95rem;
+    margin:0;
+  }
+
+  /* ---------- 3 PILARES ---------- */
+  .pillars{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+  }
+  .pillar{
+    text-align:left;
+  }
+  .pillar .icon-line{
+    width:40px;height:1px;background:var(--gold);margin-bottom:22px;
+  }
+  .pillar h3{
+    font-size:1.55rem;
+    margin-bottom:16px;
+  }
+  .pillar ul{
+    list-style:none;
+    margin:0;padding:0;
+    color:var(--ink-soft);
+    font-size:.92rem;
+  }
+  .pillar li{
+    padding:9px 0 9px 20px;
+    position:relative;
+    border-top:1px solid var(--line);
+  }
+  .pillar li:first-child{border-top:none;}
+  .pillar li::before{
+    content:"—";
+    position:absolute;left:0;top:9px;
+    color:var(--gold);
+  }
+
+  /* ---------- PRICING ---------- */
+  .pricing{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  .price-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:44px 32px;
+    text-align:center;
+    position:relative;
+    transition:background .35s ease, border-color .35s ease, transform .35s ease;
+  }
+  .price-card:hover{
+    background:var(--cream-hover);
+    border-color:var(--gold);
+    transform:translateY(-4px);
+  }
+  .price-card.featured{
+    border-color:var(--gold);
+    box-shadow:0 18px 40px -24px rgba(140,110,60,.45);
+  }
+  .price-card.featured::before{
+    content:"Recomendado";
+    position:absolute;
+    top:-13px;left:50%;
+    transform:translateX(-50%);
+    background:var(--gold);
+    color:var(--paper);
+    font-size:.65rem;
+    text-transform:uppercase;
+    letter-spacing:.15em;
+    padding:5px 16px;
+  }
+  .price-card .plan{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.6rem;
+    margin-bottom:10px;
+  }
+  .price-card .value{
+    font-size:2.2rem;
+    font-family:'Cormorant Garamond', serif;
+    color:var(--gold-dark);
+    margin-bottom:4px;
+  }
+  .price-card .value span{
+    font-size:1rem;
+    font-family:'Jost',sans-serif;
+    color:var(--ink-soft);
+  }
+  .price-card .per{
+    font-size:.78rem;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    margin-bottom:24px;
+    display:block;
+  }
+  .price-note{
+    text-align:center;
+    margin-top:44px;
+    color:var(--ink-soft);
+    font-size:.92rem;
+    max-width:640px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .cases{
+    text-align:center;
+    margin-top:28px;
+    font-style:italic;
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.2rem;
+    color:var(--gold-dark);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:70px 0 50px;
+    text-align:center;
+  }
+  footer .brand{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.6rem;
+    color:var(--gold-dark);
+  }
+  footer p{
+    color:var(--ink-soft);
+    font-size:.85rem;
+    margin-top:10px;
+  }
+
+  @media (max-width:760px){
+    .wrap{padding:0 20px;}
+    header.hero{padding:80px 0 60px;}
+    section{padding:64px 0;}
+    .diag-grid{grid-template-columns:1fr;}
+    .paths{grid-template-columns:1fr;}
+    .pillars{grid-template-columns:1fr;}
+    .pricing{grid-template-columns:1fr;}
+    .warning{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Visiongs · Proposta Comercial</span>
+    <h1>Uma marca à altura<br>do resultado que você já entrega</h1>
+    <p class="sub">Social media, produção de conteúdo e tráfego pago pensados para transformar a presença digital da clínica em agendamentos reais.</p>
+    <div class="rule center"></div>
+    <p class="for">Preparada para Clínica MR Estética — Mirna Rosica</p>
+  </div>
+</header>
+
+<section id="diagnostico">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Diagnóstico</span>
+      <h2>O que está travando o crescimento hoje</h2>
+    </div>
+    <div class="diag-grid">
+      <div class="diag-card">
+        <span class="num">01</span>
+        <h3>Identidade misturada</h3>
+        <p>O perfil hoje é a Mirna pessoa física — viagem, família e clínica no mesmo feed. Quem chega de fora não sabe se está vendo uma amiga ou uma especialista.</p>
+      </div>
+      <div class="diag-card">
+        <span class="num">02</span>
+        <h3>Engajamento baixo</h3>
+        <p>~0,3% de engajamento contra 1–3,5% das líderes do mercado local, mesmo com uma base de seguidores relevante.</p>
+      </div>
+      <div class="diag-card">
+        <span class="num">03</span>
+        <h3>Equipe invisível</h3>
+        <p>A clínica tem outras funcionárias e serviços que não aparecem — a marca só existe enquanto a Mirna posta.</p>
+      </div>
+      <div class="diag-card">
+        <span class="num">04</span>
+        <h3>Sem funil</h3>
+        <p>Não há um caminho claro entre ver um post e agendar um procedimento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="mercado">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Benchmark</span>
+      <h2>Comparação com o mercado local</h2>
+    </div>
+    <div class="table-scroll">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="highlight">@mirna.rosica (3º)</th>
+            <th>@dracamilagenaro (1º)</th>
+            <th>@clinicalotusitarare (2º)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Seguidores</th>
+            <td class="highlight">3.101</td>
+            <td>9.542</td>
+            <td>13,3 mil</td>
+          </tr>
+          <tr>
+            <th>Verificado</th>
+            <td class="highlight">Não</td>
+            <td>Sim</td>
+            <td>Não</td>
+          </tr>
+          <tr>
+            <th>Engajamento</th>
+            <td class="highlight">~0,3%</td>
+            <td>1–3,5%</td>
+            <td>0,1–0,6%</td>
+          </tr>
+          <tr>
+            <th>Identidade</th>
+            <td class="highlight">Pessoal + clínica misturados</td>
+            <td>Autoridade pessoal + nicho claro</td>
+            <td>100% marca, sem rosto pessoal</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="warning">
+      <span class="mark">!</span>
+      <span>Tráfego pago sem um perfil organizado é dinheiro queimado: o anúncio traz a visita, mas quem decide se confia é o perfil que a pessoa encontra do outro lado.</span>
+    </div>
+  </div>
+</section>
+
+<section id="posicionamento">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">A decisão</span>
+      <h2>Escolher um caminho de posicionamento</h2>
+      <p style="max-width:640px;margin:20px auto 0;color:var(--ink-soft);font-size:.95rem;">As duas líderes do mercado local resolveram esse dilema de formas opostas. A Mirna hoje não escolheu nenhum caminho — e isso é o que está segurando o engajamento.</p>
+    </div>
+    <div class="paths">
+      <div class="path-card">
+        <span class="tag"><span class="icon">1</span> Caminho um</span>
+        <h3>Autoridade pessoal</h3>
+        <p>Perfil pessoal com especialização clara e credencial forte na bio — modelo da líder do ranking.</p>
+      </div>
+      <div class="path-card">
+        <span class="tag"><span class="icon">2</span> Caminho dois</span>
+        <h3>Marca da clínica</h3>
+        <p>Perfil 100% institucional, com identidade visual própria e a equipe em evidência.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="solucao">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">A solução</span>
+      <h2>Estrutura em 3 pilares</h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="icon-line"></div>
+        <h3>Social media</h3>
+        <ul>
+          <li>Definição do caminho de posicionamento</li>
+          <li>Calendário editorial mensal</li>
+          <li>Roteiro de conteúdo por linha — resultado, bastidor, equipe, autoridade</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <div class="icon-line"></div>
+        <h3>Produção de conteúdo</h3>
+        <ul>
+          <li>Filmagem e edição de vídeos e reels</li>
+          <li>Fotos de resultado e antes/depois</li>
+          <li>Bastidores da equipe e da estrutura da clínica</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <div class="icon-line"></div>
+        <h3>Tráfego pago</h3>
+        <ul>
+          <li>Entra depois do perfil organizado</li>
+          <li>Campanhas segmentadas pra Itararé e região</li>
+          <li>Muito mais retorno por real investido</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="plano">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Investimento</span>
+      <h2>Plano comercial</h2>
+    </div>
+    <div class="pricing">
+      <div class="price-card">
+        <span class="plan">Básico</span>
+        <div class="value">R$ 1.280</div>
+        <span class="per">por mês</span>
+      </div>
+      <div class="price-card featured">
+        <span class="plan">Crescimento</span>
+        <div class="value">R$ 1.500</div>
+        <span class="per">por mês</span>
+      </div>
+      <div class="price-card">
+        <span class="plan">Essencial</span>
+        <div class="value">R$ 1.680</div>
+        <span class="per">por mês</span>
+      </div>
+    </div>
+    <p class="price-note">Contrato mínimo de 3 meses em todos os planos. Add-on de stories disponível em qualquer plano. Tráfego pago cotado à parte, conforme verba de mídia.</p>
+    <p class="cases">Cases de referência: Magros Burguer &amp; Dona Ema Salgados</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="rule center"></div>
+    <div class="brand">Visiongs</div>
+    <p>Proposta preparada pela Visiongs para Clínica MR Estética.</p>
+  </div>
+</footer>
+
+</body>
+</html>
