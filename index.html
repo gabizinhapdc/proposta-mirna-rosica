@@ -10,7 +10,7 @@
 <style>
   :root{
     --cream:#fbf7f1;
-    --cream-2:#f5eee2;
+    --cream-2:#f4e9d7;
     --cream-hover:#f4e9d7;
     --paper:#fefcf8;
     --gold:#c39f6c;
@@ -117,7 +117,7 @@
   }
   .diag-card{
     background:var(--paper);
-    padding:44px 40px;
+    padding:28px 26px;
     transition:background .35s ease;
   }
   .diag-card:hover{
@@ -126,18 +126,18 @@
   .diag-card .num{
     font-family:'Cormorant Garamond', serif;
     font-style:italic;
-    font-size:1rem;
+    font-size:.9rem;
     color:var(--gold);
     display:block;
-    margin-bottom:10px;
+    margin-bottom:8px;
   }
   .diag-card h3{
-    font-size:1.5rem;
-    margin-bottom:14px;
+    font-size:1.25rem;
+    margin-bottom:10px;
   }
   .diag-card p{
     color:var(--ink-soft);
-    font-size:.95rem;
+    font-size:.88rem;
     margin:0;
   }
 
@@ -174,7 +174,7 @@
     color:var(--ink-soft);
   }
   table.compare td.highlight, table.compare th.highlight{
-    background:#fbf3e4;
+    background:var(--cream-hover);
   }
   table.compare .col-brand{
     font-family:'Cormorant Garamond', serif;
@@ -185,7 +185,7 @@
   .warning{
     margin-top:44px;
     border:1px solid var(--gold);
-    background:#fbf3e4;
+    background:var(--cream-hover);
     padding:28px 34px;
     font-size:.98rem;
     color:var(--ink);
@@ -205,18 +205,18 @@
   .paths{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:40px;
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
   }
   .path-card{
     background:var(--paper);
-    border:1px solid var(--line);
     padding:46px 38px;
     text-align:center;
-    transition:background .35s ease, border-color .35s ease;
+    transition:background .35s ease;
   }
   .path-card:hover{
     background:var(--cream-hover);
-    border-color:var(--gold);
   }
   .path-card .tag{
     display:inline-flex;
@@ -247,14 +247,66 @@
     margin:0;
   }
 
-  /* ---------- 3 PILARES ---------- */
-  .pillars{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:40px;
+  /* ---------- CAROUSEL SHELL ---------- */
+  .carousel-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:24px;
+    margin-bottom:64px;
   }
+  .carousel-head .head{margin-bottom:0;text-align:left;}
+  .carousel-nav{
+    display:flex;
+    gap:10px;
+    flex:0 0 auto;
+  }
+  .carousel-arrow{
+    width:40px;height:40px;
+    border-radius:50%;
+    border:1px solid var(--gold);
+    background:transparent;
+    color:var(--gold-dark);
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.2rem;
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .3s ease, color .3s ease;
+  }
+  .carousel-arrow:hover{
+    background:var(--cream-hover);
+  }
+  .carousel-track{
+    display:flex;
+    gap:28px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    padding-bottom:10px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
+    scrollbar-color:var(--gold) transparent;
+  }
+  .carousel-track::-webkit-scrollbar{height:5px;}
+  .carousel-track::-webkit-scrollbar-track{background:transparent;}
+  .carousel-track::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px;}
+  .carousel-track > *{
+    scroll-snap-align:start;
+    flex:0 0 auto;
+  }
+
+  /* ---------- 3 PILARES ---------- */
   .pillar{
     text-align:left;
+    width:300px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:36px 32px;
+    transition:background .35s ease, border-color .35s ease;
+  }
+  .pillar:hover{
+    background:var(--cream-hover);
+    border-color:var(--gold);
   }
   .pillar .icon-line{
     width:40px;height:1px;background:var(--gold);margin-bottom:22px;
@@ -282,17 +334,13 @@
   }
 
   /* ---------- PRICING ---------- */
-  .pricing{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:28px;
-  }
   .price-card{
     background:var(--paper);
     border:1px solid var(--line);
     padding:44px 32px;
     text-align:center;
     position:relative;
+    width:270px;
     transition:background .35s ease, border-color .35s ease, transform .35s ease;
   }
   .price-card:hover{
@@ -376,15 +424,16 @@
     margin-top:10px;
   }
 
+  @media (max-width:600px){
+    .diag-grid{grid-template-columns:1fr;}
+  }
+
   @media (max-width:760px){
     .wrap{padding:0 20px;}
     header.hero{padding:80px 0 60px;}
     section{padding:64px 0;}
-    .diag-grid{grid-template-columns:1fr;}
-    .paths{grid-template-columns:1fr;}
-    .pillars{grid-template-columns:1fr;}
-    .pricing{grid-template-columns:1fr;}
     .warning{flex-direction:column;}
+    .carousel-head{flex-direction:column;align-items:flex-start;gap:20px;}
   }
 </style>
 </head>
@@ -506,11 +555,17 @@
 
 <section class="alt" id="solucao">
   <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">A solução</span>
-      <h2>Estrutura em 3 pilares</h2>
+    <div class="carousel-head">
+      <div class="head">
+        <span class="eyebrow">A solução</span>
+        <h2>Estrutura em 3 pilares</h2>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-arrow" data-target="pillars-track" data-dir="prev" aria-label="Anterior">‹</button>
+        <button class="carousel-arrow" data-target="pillars-track" data-dir="next" aria-label="Próximo">›</button>
+      </div>
     </div>
-    <div class="pillars">
+    <div class="carousel-track" id="pillars-track">
       <div class="pillar">
         <div class="icon-line"></div>
         <h3>Social media</h3>
@@ -544,11 +599,17 @@
 
 <section id="plano">
   <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">Investimento</span>
-      <h2>Plano comercial</h2>
+    <div class="carousel-head">
+      <div class="head">
+        <span class="eyebrow">Investimento</span>
+        <h2>Plano comercial</h2>
+      </div>
+      <div class="carousel-nav">
+        <button class="carousel-arrow" data-target="pricing-track" data-dir="prev" aria-label="Anterior">‹</button>
+        <button class="carousel-arrow" data-target="pricing-track" data-dir="next" aria-label="Próximo">›</button>
+      </div>
     </div>
-    <div class="pricing">
+    <div class="carousel-track" id="pricing-track">
       <div class="price-card">
         <span class="plan">Básico</span>
         <div class="value">R$ 1.280</div>
@@ -578,5 +639,17 @@
   </div>
 </footer>
 
+<script>
+  document.querySelectorAll('.carousel-arrow').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var track = document.getElementById(btn.dataset.target);
+      var item = track.querySelector(':scope > *');
+      var gap = 28;
+      var amount = item ? item.getBoundingClientRect().width + gap : 300;
+      var dir = btn.dataset.dir === 'prev' ? -1 : 1;
+      track.scrollBy({ left: dir * amount, behavior: 'smooth' });
+    });
+  });
+</script>
 </body>
 </html>
